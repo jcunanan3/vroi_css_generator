@@ -21,9 +21,11 @@
     margin-left: 0px;
     padding: 0px;
     }
+
+  .entry {font-size: .7em}
   
   .ui-widget-content {border:0px solid transparent; min-width: 5px; min-height: 5px;  opacity: 1;}
-
+    #draggable1 {word-wrap: break-word}
 
   /*.ui-tabs .ui-tabs-nav li {height: 25px; font-size:12px; }*/
   </style>
@@ -58,15 +60,15 @@
   <!-- Data entry block -->
   <div id="input">
   <div id="a">
-    <p>background image URL<input type="URL" id="background_url" size="80" value="http://s23.postimg.org/d1lk985a3/tide_bottle.png"></p>
-    <p>panel title<input type="text" id="panel_title" size="80" value="Cash Flows"></p>
-    <p>default font size<input type="text" id="default_size" size=10 value="40"></p>
-    <p>variable 1<input type="text" id="variable1" size="80" value="Net Payout Ratio - ymc">font size<input type="integer" id="font1" size="3" value="20">width<input type="integer" id="width1" size="3" value="100"></p>
-    <p>variable 2<input type="text" id="variable2" size="80" value="Total NOS - zkc">font size<input type="integer" id="font2" size="3" value="20">width<input type="integer" id="width2" size="3" value="100"></p>
-    <p>variable 3<input type="text" id="variable3" size="80" value="NOS/New Buyer - zkd">font size<input type="integer" id="font3" size="3" value="20">width<input type="integer" id="width3" size="3" value="100"></p>
-    <p>variable 4<input type="text" id="variable4" size="80" value="NOS/Existing Buyer - zke">font size<input type="integer" id="font4" size="3" value="20">width<input type="integer" id="width4" size="3" value="100"></p>
-    <p>variable 5<input type="text" id="variable5" size="80" >font size<input type="integer" id="font5" size="3" value="22">width<input type="integer" id="width5" size="3"></p>
-    <p>variable 6<input type="text" id="variable6" size="80" >font size<input type="integer" id="font6" size="3" value="22">width<input type="integer" id="width6" size="3"></p><br>
+    <p class="entry">background image URL<input type="URL" id="background_url" size="80" value="http://s23.postimg.org/d1lk985a3/tide_bottle.png"></p>
+    <p class="entry">panel title<input type="text" id="panel_title" size="80" value="Cash Flows"></p>
+    <p class="entry">default font size<input type="text" id="default_size" size=10 value="40"></p>
+    <p class="entry">variable 1<input type="text" id="variable1" size="50" value="Net Payout Ratio - ymc">representative string<input type="text" id="rstring1" size="20" value="1.60">font size<input type="integer" id="font1" size="3" value="20">width<input type="integer" id="width1" size="3" value="100"></p>
+    <p class="entry">variable 2<input type="text" id="variable2" size="50" value="Total NOS - zkc">representative string<input type="text" id="rstring2" size="20" value="$719 K">font size<input type="integer" id="font2" size="3" value="20">width<input type="integer" id="width2" size="3" value="100"></p>
+    <p class="entry">variable 3<input type="text" id="variable3" size="50" value="NOS/New Buyer - zkd">representative string<input type="text" id="rstring3" size="20" value="$387 K">font size<input type="integer" id="font3" size="3" value="20">width<input type="integer" id="width3" size="3" value="100"></p>
+    <p class="entry">variable 4<input type="text" id="variable4" size="50" value="NOS/Existing Buyer - zke">representative string<input type="text" id="rstring4" size="20" value="$332 K">font size<input type="integer" id="font4" size="3" value="20">width<input type="integer" id="width4" size="3" value="100"></p>
+    <p class="entry">variable 5<input type="text" id="variable5" size="50" >representative string<input type="text" id="rstring5" size="20">font size<input type="integer" id="font5" size="3" value="22">width<input type="integer" id="width5" size="3"></p>
+    <p class="entry">variable 6<input type="text" id="variable6" size="50" >representative string<input type="text" id="rstring6" size="20">font size<input type="integer" id="font6" size="3" value="22">width<input type="integer" id="width6" size="3"></p><br>
     
     <input type="submit" value="Submit" id="sub">
     
@@ -207,6 +209,7 @@ div.image-tab<br>
   var variables=[];
   var fonts=[];
   var widths=[];
+  var rstrings=[];
   var panel_title;
   var background_img;
 
@@ -258,6 +261,7 @@ $("#sub").click(function(){
       fonts[k]=default_size;
 
     };
+      rstrings[k]=$("#rstring"+k).val();
 
     k++;
     test=$("#variable"+k).val();
@@ -266,8 +270,9 @@ $("#sub").click(function(){
 
   // Append variable names and implement font sizing to HTML.
   for (i=1; i<variables.length; i++){
-    $("#draggable"+i).html(variables[i]);
+    $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
+    $("#draggable"+i).css("max-width",widths[i]);
     
   };
 
