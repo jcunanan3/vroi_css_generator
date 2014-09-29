@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+ 
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js"></script>
+ 
+  
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  
+
+  <style>
+
+  body{
+    margin-top: 5px;
+    margin-left: 0px;
+    padding: 0px;
+    }
+  
+  .ui-widget-content {border:0px solid transparent; min-width: 5px; min-height: 5px;  opacity: 1;}
+
+
+  /*.ui-tabs .ui-tabs-nav li {height: 25px; font-size:12px; }*/
+  </style>
+  <!-- Google Analytics tracking code -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55225145-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+  <!-- set up jQuery UI tabs -->
+  <div id="tabs-1">
+    <ul>
+      <li><a href="#tabs-2">data entry</a></li>
+      <li><a href="#tabs-3">interaction</a></li>
+      <li><a href="#tabs-4">init code</a></li>
+      <li><a href="#tabs-5">update code</a></li>
+      <li><a href="#tabs-6">styles</a><li>
+      <li><a href="#tabs-7">readme</a><li>
+    </ul>
+
+    <div id="tabs-2">  
+ 
+
+  <!-- Data entry block -->
+  <div id="input">
+  <div id="a">
+    <p>background image URL<input type="URL" id="background_url" size="80" value="http://s23.postimg.org/d1lk985a3/tide_bottle.png"></p>
+    <p>panel title<input type="text" id="panel_title" size="80" value="Cash Flows"></p>
+    <p>default font size<input type="text" id="default_size" size=10 value="40"></p>
+    <p>variable 1<input type="text" id="variable1" size="80" value="Net Payout Ratio - ymc">font size<input type="integer" id="font1" size="3" value="20">width<input type="integer" id="width1" size="3" value="100"></p>
+    <p>variable 2<input type="text" id="variable2" size="80" value="Total NOS - zkc">font size<input type="integer" id="font2" size="3" value="20">width<input type="integer" id="width2" size="3" value="100"></p>
+    <p>variable 3<input type="text" id="variable3" size="80" value="NOS/New Buyer - zkd">font size<input type="integer" id="font3" size="3" value="20">width<input type="integer" id="width3" size="3" value="100"></p>
+    <p>variable 4<input type="text" id="variable4" size="80" value="NOS/Existing Buyer - zke">font size<input type="integer" id="font4" size="3" value="20">width<input type="integer" id="width4" size="3" value="100"></p>
+    <p>variable 5<input type="text" id="variable5" size="80" >font size<input type="integer" id="font5" size="3" value="22">width<input type="integer" id="width5" size="3"></p>
+    <p>variable 6<input type="text" id="variable6" size="80" >font size<input type="integer" id="font6" size="3" value="22">width<input type="integer" id="width6" size="3"></p><br>
+    
+    <input type="submit" value="Submit" id="sub">
+    
+  </div>
+
+
+</div>
+</div>
+<div id="tabs-3">
+   <div id="background">  </div>
+  <div id="prompt">Drag and drop the variable elements below</div>
+
+  <div id="draggable1" class="ui-widget-content"></div>
+  <div id="draggable2" class="ui-widget-content"></div>
+  <div id="draggable3" class="ui-widget-content"></div>
+  <div id="draggable4" class="ui-widget-content"></div>
+  <div id="draggable5" class="ui-widget-content"></div>
+  <div id="draggable6" class="ui-widget-content"></div>
+  <div id="b">
+    <!-- this button action returns variable element locations and generates all scripts -->
+    <!-- the user can re-align the elements and hit the button multiple times to return updated locations and scripts -->
+    <p><button type="button">generate scripts</button></p>
+  </div>
+  <div id="result"><br></div>
+  <div id="html_format"><br></div>
+
+  </div>
+
+<div id="tabs-4">
+  <!-- concatenation of the initcode script -->
+  <!-- combines static HTML and dynamic elements like variable locations -->
+  <div id="initcode">
+  <div id="begstr">this.createScenarioPanel = function(scenario)<br>
+{<br>
+  if (!this.scenarioInitialized)<br>
+  {<br>
+    this.scenarioInitialized = [];<br>
+    Visualizer.view.scenario.TabPanel.addListener('tabchange', function(tabpanel, tab)<br>
+    {<br>
+      this.panel.setActiveTab(tabpanel.items.indexOf(tab));<br>
+    }, this);<br>
+  }<br>
+  if (!this.scenarioInitialized[scenario.index])<br>
+  {<br>
+    this.scenarioInitialized[scenario.index] = true;<br>
+    <br>
+    this.panel.add(new Ext.Panel(<br>
+    {<br>
+      'title': Visualizer.model.scenario.getNameDecorated(scenario),<br>
+      'layout': 'fit',<br>
+      'border': false,<br>
+      'autoScroll': true,<br><br>
+    </div>
+    <div id="html"><br></div>
+    <div id="midstr">if (scenario.index == 0)<br>
+      this.panel.setActiveTab(0);<br>
+  }<br>
+};<br>
+this.panel = new Ext.TabPanel(<br>
+{<br>
+</div>
+<!-- insert panel title here -->
+<div id="panel"></div>
+<div id="endstr">
+  'listeners':<br>
+  {<br>
+    'tabchange': function(tabpanel, tab)<br>
+    {<br>
+      Visualizer.view.scenario.TabPanel.setActiveTab(tabpanel.items.indexOf(tab));<br>
+    }<br>
+  }<br>
+});<br>
+Visualizer.view.main.OutputPanel.insert(0, this.panel);   </div>
+</div>
+<!-- create update code script -->
+</div>
+<div id="tabs-5">
+  <p>this.createScenarioPanel(scenario);<p>
+<br>
+<p>var selector = '.image-tab' + scenario.index + '-';<p>
+  <!-- variable selector code inserted here -->
+  <div id="selector"></div>
+
+</div>
+<!-- create styles script here -->
+<div id="tabs-6">
+  .section<br>
+{<br>
+  -moz-box-shadow: inset 1px 5px 10px -5px #555;<br>
+  -webkit-box-shadow: inset 1px 5px 10px -5px #555;<br>
+  box-shadow: inset 1px 5px 10px -5px #555;<br>
+  <br>
+  text-shadow: -1px -1px 0px #444;<br>
+  color: #fff;<br>
+  font: italic 1.5em calibri, arial, helvetica, sans-serif;<br>
+  padding: 8px;<br>
+  
+background: #207ce5; /* Old browsers */<br>
+background: -moz-linear-gradient(top, #207ce5 14%, #499bea 30%, #207ce5 60%, #207ce5 77%); /* FF3.6+ */<br>
+background: -webkit-gradient(linear, left top, left bottom, color-stop(14%,#207ce5), color-stop(30%,#499bea), color-stop(60%,#207ce5), color-stop(77%,#207ce5)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #207ce5 14%,#499bea 30%,#207ce5 60%,#207ce5 77%); /* Chrome10+,Safari5.1+ */<br>
+background: -o-linear-gradient(top, #207ce5 14%,#499bea 30%,#207ce5 60%,#207ce5 77%); /* Opera 11.10+ */<br>
+background: -ms-linear-gradient(top, #207ce5 14%,#499bea 30%,#207ce5 60%,#207ce5 77%); /* IE10+ */<br>
+background: linear-gradient(to bottom, #207ce5 14%,#499bea 30%,#207ce5 60%,#207ce5 77%); /* W3C */<br>
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207ce5', endColorstr='#207ce5',GradientType=0 ); /* IE6-9 */<br>
+}<br>
+
+div.image-tab<br>
+{<br>
+  font-family: Helvetica,Arial,sans-serif;<br>
+  height: 400px;<br>
+  width: 600px;<br>
+<br>
+<div id="styles_url"></div>
+}
+  </div>
+<div id="tabs-7" style="font-size: 1em">
+  <p>This app provides implementation support for the <a href="https://www.visualize-roi.com/c5/">VisualizeROI</a> application. </p><br>
+  1) Edit your extensions background image in a graphics application. Save it to your local drive.<br>
+  2) Upload the image to an image hosting service (e.g., postimg.org).<br>
+  3) Copy the unique image URL to the appropriate field in the "data entry" tab.<br>
+  4) Copy the variable name code reference from the "Variable Types"->"Input Variable Type" page (e.g., "Program Reach - ym9"). Copy and paste EXACTLY.<br>
+  5) Populate the font size and width fields appropriately. If you leave variable font size field blank, then the variable will take on the value specified in the "default font size" field. <br>
+  6) Press the submit button.<br>
+  7) Drag and drop the variable elements onto the background image. Once the images are located as you please, press "generate scripts".<br>
+  8) Go to the "init code" tab. Copy and paste the entire block of text into the VisuzalizeROI extensions panel init code section. Hit save and update in the extension panel.<br>
+  9) Do the same for the text in the "update code" tab.<br>
+  10) On the "visualizer type" screen, navigate to the "styles" link under the icon. Copy and paste the ENTIRE text from this application's "styles" tab into the style panel's "custom css" section. Save it.<br>
+  11) Refresh the visualizer prototype. This should render all of the changes that you've made. <br><br>
+
+  Any questions? Please email <a href="mailto:support@visualizeroi.com">support@visualizeroi.com</a>.<br>
+
+</div>
+  
+</body>
+
+<script>
+  var variables=[];
+  var fonts=[];
+  var widths=[];
+  var panel_title;
+  var background_img;
+
+  $("#prompt").hide();
+  $("#b").hide();
+
+  // Make graphical elements draggable.
+  $(function() {
+    for (var j=1; j<7; j++){
+    $("#draggable"+j).draggable(); 
+    }; 
+  });
+  $(function() {
+            $( "#tabs-1" ).tabs();
+         });  
+
+// Load up variable names, make them draggable, and fade out data entry fields.
+$("#sub").click(function(){
+  // Fadeout the data entry block.
+//  $("#a").fadeOut(2000);
+  
+  $("#prompt").show();
+  $("#b").show();
+  background_img=$("#background_url").val();
+  panel_title=$("#panel_title").val();
+  background_img="<img src=\""+background_img+"\">"; 
+  $("#background").html(background_img);
+
+  // Enter variable names and font sizes to javascript.
+  var k=1;
+  var test="ok";
+  var default_size=$("#default_size").val();
+  
+  var temp;
+  while (test!="" && k<7){
+    
+    variables[k]=$("#variable"+k).val();
+
+    fonts[k]=$("#font"+k).val();
+    temp=$("#width"+k).val();
+    if (temp=="") {
+      widths[k]="";
+    } else {
+      widths[k]="width:"+temp+"px;";
+    };
+    
+    if (fonts[k]=="") {
+      
+      fonts[k]=default_size;
+
+    };
+
+    k++;
+    test=$("#variable"+k).val();
+    
+  };
+
+  // Append variable names and implement font sizing to HTML.
+  for (i=1; i<variables.length; i++){
+    $("#draggable"+i).html(variables[i]);
+    $("#draggable"+i).css("font-size", fonts[i]+"px");
+    
+  };
+
+});
+ 
+var relative_left=[];
+var relative_top=[];
+// Get and report the coordinates of the graphical elements
+$( "#b", document.body ).click(function( event ) {
+  $("#result").html("");
+
+  // Get the absolute coordinates
+  var offset=[];
+  
+  $("#result").append("absolute coordinates"+"<br>");
+  for (var m=1; m<variables.length; m++){
+    offset[m] = $( "#draggable"+m).position();
+    $( "#result" ).append( variables[m] + " coords ( " + offset[m].left + ", " + offset[m].top + " )"+"<br>");
+  };
+
+  // Convert the absolute coordinates to relative ones per the VROI convention
+  // Some manual correction so that the coordinates translate closely to the VROI panel
+  relative_left[1]=Math.round(offset[1].left-28);
+  relative_top[1]=Math.round(offset[1].top-60);
+  
+  
+  $("#result").append("<br>"+"relative coordinates (per VROI convention)"+"<br>");
+
+  // first variable is in absolute coordinates
+  $( "#result" ).append( "1 "+variables[1] + " coords ( " + relative_left[1] + ", " + relative_top[1] + " )"+"<br>");
+
+  // compute the relative coordinates
+  for (m=2; m<variables.length; m++){
+    relative_left[m]=Math.round(offset[m].left-offset[m-1].left);
+    relative_top[m]=Math.round(offset[m].top-offset[m-1].top);
+    $( "#result" ).append( m+" "+variables[m] + " coords ( " + relative_left[m] + ", " + relative_top[m] + " )"+"<br>");    
+  };
+
+
+  var newstr;
+  var strformat="\'html\': String.format(\'<div class=\"image-tab\"><div class=\"image-tab-numbers\">";
+  var terminus="<div class=\"antenna-workflow{0}-publish antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-run antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-manage antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-analyze antenna-workflow-number\"></div><div style=\"clear: both;\"></div></div></div></div></div>\', scenario.index)}));"
+  strformat=strformat+"<div style=\"position: absolute;top: "+relative_top[1]+"px;left: "+relative_left[1]+"px;\">";
+  // $('<li></li>').text(strformat).appendTo('#html_format');
+  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\""+widths[1]+"font-size:"+fonts[1]+"px\"></div>";
+  $('<li></li>').text(strformat).appendTo('#html_format');
+  
+  for (var i=2;i<variables.length;i++){
+    newstr="<div style=\"position: absolute;top: "+relative_top[i]+"px;left: "+relative_left[i]+"px;\">";
+    $('<li></li>').text(newstr).appendTo('#html_format');
+    // $("#html_format").append(newstr);   
+    strformat=strformat+newstr;
+    newstr="<div class=\"image-tab{0}-"+i+"\" style=\""+widths[i]+"font-size:"+fonts[i]+"px\"></div>";
+    $('<li></li>').text(newstr).appendTo('#html_format');
+    // $("#html_format").append(newstr); 
+    strformat=strformat+newstr;
+          
+  };
+  strformat=strformat+terminus;
+  $('#panel').html("");
+  $('#html').text(strformat);
+  var temp="'title': '"+panel_title+"',";
+  $('#panel').html(temp);
+
+  // make update code
+  $("#selector").html("");
+  var line=[];
+  var i;
+  for (i=1; i<variables.length; i++){
+    line[1]="$(selector + '"+i+"').html(Visualizer.view.variable.getFormattedValue(";
+    line[2]="  vars[1]['"+variables[i]+"'].value,";
+    line[3]="  vars[1]['"+variables[i]+"'].record.data.variable));";
+
+    for (var j=1; j<4; j++) {
+    $("#selector").append(line[j]+"<br>");
+    console.log(line[j]);
+    };
+    $("#selector").append("<br>");
+  };
+
+  var styles="  background: url("+background_img+")";
+    $("#styles_url").text(styles);
+   
+});
+
+</script>
+</html>
