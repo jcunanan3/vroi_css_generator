@@ -12,6 +12,7 @@
 
   $("#prompt").hide();
   $("#b").hide();
+  $("#post_submit").hide();
 
   // Make graphical elements draggable.
   $(function() {
@@ -30,6 +31,7 @@ $("#sub").click(function(){
 
   $("#prompt").show();
   $("#b").show();
+    $("#post_submit").show();
   background_img=$("#background_url").val();
   panel_title=$("#panel_title").val();
   background_img="<img src=\""+background_img+"\">";
@@ -86,9 +88,7 @@ var rw;
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).width(widths[i]);
 
-      rw=$("#draggable"+i).width()
-
-
+      rw=$("#draggable"+i).width();
   }
 
 });
