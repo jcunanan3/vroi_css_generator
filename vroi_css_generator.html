@@ -24,8 +24,14 @@
 
   .entry {font-size: .7em}
   
-  .ui-widget-content {border:0px solid transparent; min-width: 5px; min-height: 5px;  opacity: 1;}
-    #draggable1 {word-wrap: break-word}
+  .ui-widget-content {border:0px solid black; min-width: 5px; min-height: 5px;  opacity: 1;}
+    #draggable1 {word-wrap: break-word; width: 100px;}
+    #draggable2 {word-wrap: break-word; width: 100px;}
+    #draggable3 {word-wrap: break-word; width: 100px;}
+    #draggable4 {word-wrap: break-word; width: 100px;}
+    #draggable5 {word-wrap: break-word; width: 100px;}
+    #draggable6 {word-wrap: break-word; width: 100px;}
+
 
   /*.ui-tabs .ui-tabs-nav li {height: 25px; font-size:12px; }*/
   </style>
@@ -37,6 +43,7 @@
   })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-55225145-1', 'auto');
+  ga('require', 'displayfeatures');
   ga('send', 'pageview');
 
 </script>
@@ -244,6 +251,7 @@ $("#sub").click(function(){
   var default_size=$("#default_size").val();
   
   var temp;
+  var temp2="";
   while (test!="" && k<7){
     
     variables[k]=$("#variable"+k).val();
@@ -253,28 +261,45 @@ $("#sub").click(function(){
     if (temp=="") {
       widths[k]="";
     } else {
-      widths[k]="width:"+temp+"px;";
+      widths[k]=temp;
     };
     
     if (fonts[k]=="") {
       
       fonts[k]=default_size;
 
-    };
+    }
       rstrings[k]=$("#rstring"+k).val();
+      temp=parseInt(rstrings[k]);
+      console.log("temp",temp);
+      if (temp>=1000000) {
+          temp=Math.round(temp/1000000);
+          temp2=temp.toString()+" M";
+          rstrings[k]=temp2;
+      } else if (temp>=1000) {
+          temp=Math.round(temp/1000);
+//          temp3=temp.toString;
+          temp2=temp.toString()+" K";
+          console.log(temp, temp.toString, temp2);
+          rstrings[k]=temp2;
+
+      }
 
     k++;
     test=$("#variable"+k).val();
     
-  };
-
+  }
+var rw;
   // Append variable names and implement font sizing to HTML.
   for (i=1; i<variables.length; i++){
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
-    $("#draggable"+i).css("max-width",widths[i]);
+    $("#draggable"+i).width(widths[i]);
+
+      rw=$("#draggable"+i).width()
+
     
-  };
+  }
 
 });
  
@@ -348,7 +373,7 @@ $( "#b", document.body ).click(function( event ) {
 
     for (var j=1; j<4; j++) {
     $("#selector").append(line[j]+"<br>");
-    console.log(line[j]);
+
     };
     $("#selector").append("<br>");
   };
