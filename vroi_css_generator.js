@@ -9,6 +9,7 @@
   var rstrings=[];
   var panel_title;
   var background_img;
+  var background_img_styles;
 
   $("#prompt").hide();
   $("#b").hide();
@@ -34,6 +35,7 @@ $("#sub").click(function(){
     $("#post_submit").show();
   background_img=$("#background_url").val();
   panel_title=$("#panel_title").val();
+  background_img_styles=background_img;
   background_img="<img src=\""+background_img+"\">";
   $("#background").html(background_img);
 
@@ -168,7 +170,7 @@ $( "#b", document.body ).click(function( event ) {
     $("#selector").append("<br>");
   };
 
-  var styles="  background: url("+background_img+")";
+  var styles="  background: url("+background_img_styles+")";
     $("#styles_url").text(styles);
 
 });
