@@ -6,6 +6,7 @@
   var variables=[];
   var fonts=[];
   var widths=[];
+  var colors=[];
   var rstrings=[];
   var xstrings=[];
   var astrings=[];
@@ -65,6 +66,11 @@ $("#sub").click(function(){
       fonts[k]=default_size;
 
     }
+      colors[k]=$("#color"+k).val();
+      console.log(k, colors[k]);
+      if (colors[k]=="") {
+          colors[k]="black"
+      }
       rstrings[k]=$("#rstring"+k).val();
       astrings[k]=$("#astring"+k).val();
       xstrings[k]=$("#xstring"+k).val();
@@ -93,6 +99,7 @@ var rw;
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).width(widths[i]);
+    $("#draggable"+i).css("color",colors[i]);
 
       rw=$("#draggable"+i).width();
   }
@@ -138,7 +145,7 @@ $( "#b", document.body ).click(function( event ) {
   var terminus="<div class=\"antenna-workflow{0}-publish antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-run antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-manage antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-analyze antenna-workflow-number\"></div><div style=\"clear: both;\"></div></div></div></div></div>\', scenario.index)}));"
   strformat=strformat+"<div style=\"position: absolute;top: "+relative_top[1]+"px;left: "+relative_left[1]+"px;\">";
   // $('<li></li>').text(strformat).appendTo('#html_format');
-  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\"width:"+widths[1]+"px;font-size:"+fonts[1]+"px\"></div>";
+  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\"width:"+widths[1]+"px; color: "+colors[1]+"; font-size:"+fonts[1]+"px\"></div>";
   $('<li></li>').text(strformat).appendTo('#html_format');
 
   for (var i=2;i<variables.length;i++){
@@ -146,7 +153,8 @@ $( "#b", document.body ).click(function( event ) {
     $('<li></li>').text(newstr).appendTo('#html_format');
     // $("#html_format").append(newstr);
     strformat=strformat+newstr;
-    newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;font-size:"+fonts[i]+"px\"></div>";
+    newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;color: "+colors[i]+"; font-size:"+fonts[i]+"px\"></div>";
+      console.log("update code colors ",colors[i]);
     $('<li></li>').text(newstr).appendTo('#html_format');
     // $("#html_format").append(newstr);
     strformat=strformat+newstr;
