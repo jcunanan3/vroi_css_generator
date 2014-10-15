@@ -134,7 +134,7 @@ $( "#b", document.body ).click(function( event ) {
   var terminus="<div class=\"antenna-workflow{0}-publish antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-run antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-manage antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-analyze antenna-workflow-number\"></div><div style=\"clear: both;\"></div></div></div></div></div>\', scenario.index)}));"
   strformat=strformat+"<div style=\"position: absolute;top: "+relative_top[1]+"px;left: "+relative_left[1]+"px;\">";
   // $('<li></li>').text(strformat).appendTo('#html_format');
-  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\""+widths[1]+"font-size:"+fonts[1]+"px\"></div>";
+  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\"width:"+widths[1]+"px;font-size:"+fonts[1]+"px\"></div>";
   $('<li></li>').text(strformat).appendTo('#html_format');
 
   for (var i=2;i<variables.length;i++){
@@ -142,7 +142,7 @@ $( "#b", document.body ).click(function( event ) {
     $('<li></li>').text(newstr).appendTo('#html_format');
     // $("#html_format").append(newstr);
     strformat=strformat+newstr;
-    newstr="<div class=\"image-tab{0}-"+i+"\" style=\""+widths[i]+"font-size:"+fonts[i]+"px\"></div>";
+    newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;font-size:"+fonts[i]+"px\"></div>";
     $('<li></li>').text(newstr).appendTo('#html_format');
     // $("#html_format").append(newstr);
     strformat=strformat+newstr;
