@@ -7,6 +7,8 @@
   var fonts=[];
   var widths=[];
   var rstrings=[];
+  var xstrings=[];
+  var astrings=[];
   var panel_title;
   var background_img;
   var background_img_styles;
@@ -39,7 +41,7 @@ $("#sub").click(function(){
   background_img="<img src=\""+background_img+"\">";
   $("#background").html(background_img);
 
-  // Enter variable names and font sizes to javascript.
+  // Enter variable names, widths and font sizes to javascript.
   var k=1;
   var test="ok";
   var default_size=$("#default_size").val();
@@ -64,6 +66,8 @@ $("#sub").click(function(){
 
     }
       rstrings[k]=$("#rstring"+k).val();
+      astrings[k]=$("#astring"+k).val();
+      xstrings[k]=$("#xstring"+k).val();
       temp=parseInt(rstrings[k]);
       console.log("temp",temp);
       if (temp>=1000000) {
@@ -161,7 +165,14 @@ $( "#b", document.body ).click(function( event ) {
   for (i=1; i<variables.length; i++){
     line[1]="$(selector + '"+i+"').html(Visualizer.view.variable.getFormattedValue(";
     line[2]="  vars[1]['"+variables[i]+"'].value,";
+      if (astrings[i]!="") {
+          line[1]=line[1]+"\""+astrings[i]+"\"+";
+      }
     line[3]="  vars[1]['"+variables[i]+"'].record.data.variable));";
+      if (xstrings[i]!="") {
+//          line[3]=line[3]+"+\""+xstrings[i]+"\"";
+           line[3]="  vars[1]['"+variables[i]+"'].record.data.variable)+\""+xstrings[i]+"\");";
+      }
 
     for (var j=1; j<4; j++) {
     $("#selector").append(line[j]+"<br>");
