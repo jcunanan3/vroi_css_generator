@@ -154,7 +154,7 @@ $( "#b", document.body ).click(function( event ) {
     // $("#html_format").append(newstr);
     strformat=strformat+newstr;
     newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;color: "+colors[i]+"; font-size:"+fonts[i]+"px\"></div>";
-      console.log("update code colors ",colors[i]);
+
     $('<li></li>').text(newstr).appendTo('#html_format');
     // $("#html_format").append(newstr);
     strformat=strformat+newstr;
@@ -174,7 +174,8 @@ $( "#b", document.body ).click(function( event ) {
     line[1]="$(selector + '"+i+"').html(Visualizer.view.variable.getFormattedValue(";
     line[2]="  vars[1]['"+variables[i]+"'].value,";
       if (astrings[i]!="") {
-          line[1]=line[1]+"\""+astrings[i]+"\"+";
+          line[1]="$(selector + '"+i+"').html(\""+astrings[i]+"\" + Visualizer.view.variable.getFormattedValue(";
+//          line[1]=line[1]+"\""+astrings[i]+"\"+";
       }
     line[3]="  vars[1]['"+variables[i]+"'].record.data.variable));";
       if (xstrings[i]!="") {
