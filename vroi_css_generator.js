@@ -13,6 +13,9 @@
   var panel_title;
   var background_img;
   var background_img_styles;
+  var image_width;
+  var image_height;
+    var image;
 
   $("#prompt").hide();
   $("#b").hide();
@@ -39,7 +42,7 @@ $("#sub").click(function(){
   background_img=$("#background_url").val();
   panel_title=$("#panel_title").val();
   background_img_styles=background_img;
-  background_img="<img src=\""+background_img+"\">";
+  background_img="<img src=\""+background_img+"\""+ "id=pict>";
   $("#background").html(background_img);
 
   // Enter variable names, widths and font sizes to javascript.
@@ -67,7 +70,7 @@ $("#sub").click(function(){
 
     }
       colors[k]=$("#color"+k).val();
-      console.log(k, colors[k]);
+
       if (colors[k]=="") {
           colors[k]="black"
       }
@@ -75,7 +78,7 @@ $("#sub").click(function(){
       astrings[k]=$("#astring"+k).val();
       xstrings[k]=$("#xstring"+k).val();
       temp=parseInt(rstrings[k]);
-      console.log("temp",temp);
+
       if (temp>=1000000) {
           temp=Math.round(temp/1000000);
           temp2=temp.toString()+" M";
@@ -84,7 +87,7 @@ $("#sub").click(function(){
           temp=Math.round(temp/1000);
 //          temp3=temp.toString;
           temp2=temp.toString()+" K";
-          console.log(temp, temp.toString, temp2);
+
           rstrings[k]=temp2;
 
       }
@@ -100,6 +103,12 @@ var rw;
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).width(widths[i]);
     $("#draggable"+i).css("color",colors[i]);
+      $("#draggable"+i).css("background-color","blue");
+    if (colors[i]=="white") {
+//        $("#draggable"+i).css("background-color","rgba(0,0,0,.5)");
+        $("#draggable"+i).css("background-color","black");
+        console.log(i,"changing background color to black");
+    }
 
       rw=$("#draggable"+i).width();
   }
@@ -110,6 +119,15 @@ var relative_left=[];
 var relative_top=[];
 // Get and report the coordinates of the graphical elements
 $( "#b", document.body ).click(function( event ) {
+//    image_width=$("#background").naturalWidth;
+//    image_width=document.getElementById('<img src="http://s28.postimg.org/v2pzzi7ql/insideview.png">').naturalWidth;
+    image=document.getElementById("pict");
+    image_width=image.naturalWidth;
+    image_height=$("#background").height();
+    $("#image_height").append(image_height+"px;");
+    $("#image_width").append(image_width+"px;");
+//
+
   $("#result").html("");
 
   // Get the absolute coordinates

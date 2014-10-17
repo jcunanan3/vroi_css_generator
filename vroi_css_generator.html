@@ -50,10 +50,10 @@
     <p class="entry">default font size<input type="text" id="default_size" size=10 value="40"></p>
     <p class="entry">variable 1<input type="text" id="variable1" size="40" value="web form submissions invis - 11mn">repr string<input type="text" id="rstring1" size="30" value="with 1,700 new web form submissions each month">font size<input type="integer" id="font1" size="3" value="18">width<input type="integer" id="width1" size="3" value="500">color<input type="text" id="color1" size="10">1st extra string<input type="text" id="astring1" size="20" value=""with ">2nd extra string<input type="text" id="xstring1" size="20" value=" new web form submissions each month"></p>
     <p class="entry">variable 2<input type="text" id="variable2" size="40" value="Percent Increase in Form Conversions - 11mo">repr string<input type="text" id="rstring2" size="30" value="and a 42% increase in form conversions">font size<input type="integer" id="font2" size="3" value="18">width<input type="integer" id="width2" size="3" value="500">color<input type="text" id="color2" size="10">1st extra string<input type="text" id="astring2" size="20" value="and a ">2nd extra string<input type="text" id="xstring2" size="20" value=" increase in form conversions"></p>
-    <p class="entry">variable 3<input type="text" id="variable3" size="40" value="Increased Inbound Leads Per Month - 11mp">repr string<input type="text" id="rstring3" size="30" value="714 more inbound leads per month">font size<input type="integer" id="font3" size="3" value="18">width<input type="integer" id="width3" size="3" value="150">color<input type="text" id="color3" size="10">1st extra string<input type="text" id="astring3" size="20" value="">2nd extra string<input type="text" id="xstring3" size="20" value=" more inbound leads per month"></p>
+    <p class="entry">variable 3<input type="text" id="variable3" size="40" value="Increased Inbound Leads Per Month - 11mp">repr string<input type="text" id="rstring3" size="30" value="714 more inbound leads per month">font size<input type="integer" id="font3" size="3" value="18">width<input type="integer" id="width3" size="3" value="150">color<input type="text" id="color3" value="white" size="10">1st extra string<input type="text" id="astring3" size="20" value="">2nd extra string<input type="text" id="xstring3" size="20" value=" more inbound leads per month"></p>
     <p class="entry">variable 4<input type="text" id="variable4" size="40" value="Leads To Quality Per Month Per Rep - 11mr">repr string<input type="text" id="rstring4" size="30" value="with 500 leads to qualify each month for each rep">font size<input type="integer" id="font4" size="3" value="18">width<input type="integer" id="width4" size="3" value="200">color<input type="text" id="color4" size="10">1st extra string<input type="text" id="astring4" size="20" value="with ">2nd extra string<input type="text" id="xstring4" size="20" value=" leads to qualify each month for each rep"></p>
     <p class="entry">variable 5<input type="text" id="variable5" size="40" value="improved lead qual rate invis - 11mt">repr string<input type="text" id="rstring5" size="30" value="and a 24% improved lead qual rate">font size<input type="integer" id="font5" size="3" value="18">width<input type="integer" id="width5" size="3" value="350">color<input type="text" id="color5" size="10">1st extra string<input type="text" id="astring5" size="20" value="and a ">2nd extra string<input type="text" id="xstring5" size="20" value=" improved lead qual rate"></p>
-    <p class="entry">variable 6<input type="text" id="variable6" size="40" value="Increased Qualified Leads Per Year - 11mu">repr string<input type="text" id="rstring6" size="30" value="1,140 more qualified leads per year">font size<input type="integer" id="font6" size="3" value="18">width<input type="integer" id="width6" size="3" value="120">color<input type="text" id="color6" size="10">1st extra string<input type="text" id="astring6" size="20" value="">2nd extra string<input type="text" id="xstring6" size="20" value=" more qualified leads per year"></p><br>
+    <p class="entry">variable 6<input type="text" id="variable6" size="40" value="Increased Qualified Leads Per Year - 11mu">repr string<input type="text" id="rstring6" size="30" value="1,140 more qualified leads per year">font size<input type="integer" id="font6" size="3" value="18">width<input type="integer" id="width6" size="3" value="120">color<input type="text" id="color6" size="10" value="white">1st extra string<input type="text" id="astring6" size="20" value="">2nd extra string<input type="text" id="xstring6" size="20" value=" more qualified leads per year"></p><br>
     
     <input type="submit" class="ui-widget" value="Submit" id="sub">
       <div id="post_submit">Data loaded! Please go to the "interaction" tab for the next step.</div>
@@ -67,7 +67,7 @@
    <div id="background">  </div>
   <div id="prompt">Drag and drop the variable elements below</div>
 
-  <div id="draggable1" class="ui-widget-content"></div>
+  <div id="draggable1" class="ui-widget-content" background-color="red"></div>
   <div id="draggable2" class="ui-widget-content"></div>
   <div id="draggable3" class="ui-widget-content"></div>
   <div id="draggable4" class="ui-widget-content"></div>
@@ -166,8 +166,9 @@ background: rgb(169,3,41);
 div.image-tab<br>
 {<br>
   font-family: Helvetica,Arial,sans-serif;<br>
-  height: 600px;<br>
-  width: 800px;<br>
+
+  <div id="image_height">height: </div>
+  <div id="image_width">width: </div><br>
 <br>
 <div id="styles_url"></div>
 }
