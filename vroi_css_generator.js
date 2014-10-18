@@ -103,11 +103,9 @@ var rw;
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).width(widths[i]);
     $("#draggable"+i).css("color",colors[i]);
-      $("#draggable"+i).css("background-color","blue");
+
     if (colors[i]=="white") {
-//        $("#draggable"+i).css("background-color","rgba(0,0,0,.5)");
-        $("#draggable"+i).css("background-color","black");
-        console.log(i,"changing background color to black");
+        $("#draggable"+i).css("background","rgba(0,0,0,.3)");
     }
 
       rw=$("#draggable"+i).width();
@@ -119,14 +117,13 @@ var relative_left=[];
 var relative_top=[];
 // Get and report the coordinates of the graphical elements
 $( "#b", document.body ).click(function( event ) {
-//    image_width=$("#background").naturalWidth;
-//    image_width=document.getElementById('<img src="http://s28.postimg.org/v2pzzi7ql/insideview.png">').naturalWidth;
+//get background image's dimensions
     image=document.getElementById("pict");
     image_width=image.naturalWidth;
     image_height=$("#background").height();
+//    add dimensions to styles code
     $("#image_height").append(image_height+"px;");
     $("#image_width").append(image_width+"px;");
-//
 
   $("#result").html("");
 
