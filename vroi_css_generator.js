@@ -15,7 +15,7 @@
   var background_img_styles;
   var image_width;
   var image_height;
-    var image;
+  var image;
 
   $("#prompt").hide();
   $("#b").hide();

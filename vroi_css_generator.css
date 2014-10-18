@@ -4,7 +4,8 @@ body{
     padding: 0px;
     
     }
-
+ table {font-size: .7em; border-spacing: 0.5rem;}
+ th {text-align: left}
   .entry {font-size: .7em}
   /*.ui-tabs-panel {background-color: grey;}*/
   #tabs3 {background-color: blue}
