@@ -43,54 +43,56 @@
  
 
   <!-- Data entry block -->
+        <div id="number">
+            <p class="entry">How many graphical elements will you be formatting?</p><p class="entry"><input type="number" id="elements" size="3" value="6"></p>
+            <input type="submit" class="ui-widget" value="Submit" id="sub_number">
+        </div>
   <div id="input">
   <div id="a">
-      <p>If you enter leading or trailing spaces, they will be used and NOT stripped.</p>
+      <p class="entry">If you enter leading or trailing spaces, they will be used and NOT stripped.</p>
     <p class="entry">background image URL<input type="URL" id="background_url" size="80" value="http://s28.postimg.org/v2pzzi7ql/insideview.png"></p>
     <p class="entry">panel title<input type="text" id="panel_title" size="80" value="Cash Flows"></p>
     <p class="entry">default font size<input type="text" id="default_size" size=10 value="40"></p>
-      <table >
-      <tr>
-          <th>number</th><th>variable name</th><th>representative string</th><th>font size</th><th>width</th><th>color</th><th>1st extra string</th><th>2nd extra string</th>
-      </tr>
-          <tr>
-          <td>1</td><td><input type="text" id="variable1" size="40" value="web form submissions invis - 11mn"></td><td><input type="text" id="rstring1" size="30" value="with 1,700 new web form submissions each month"></td><td><input type="integer" id="font1" size="3" value="18"></td><td><input type="integer" id="width1" size="3" value="500"></td><td><input type="text" id="color1" size="10"></td><td><input type="text" id="astring1" size="20" value=""with "></td><td><input type="text" id="xstring1" size="20" value=" new web form submissions each month"></td>
-    </tr>
-
-    <tr>
-              <td>2</td><td><input type="text" id="variable2" size="40" value="Percent Increase in Form Conversions - 11mo"></td><td><input type="text" id="rstring2" size="30" value="and a 42% increase in form conversions"></td><td><input type="integer" id="font2" size="3" value="18"></td><td><input type="integer" id="width2" size="3" value="500"></td><td><input type="text" id="color2" size="10"></td><td><input type="text" id="astring2" size="20" value="and a "></td><td><input type="text" id="xstring2" size="20" value=" increase in form conversions"></td>
-    </tr>
-    <tr>
-              <td>3</td><td><input type="text" id="variable3" size="40" value="Increased Inbound Leads Per Month - 11mp"></td><td><input type="text" id="rstring3" size="30" value="714 more inbound leads per month"></td><td><input type="integer" id="font3" size="3" value="18"></td><td><input type="integer" id="width3" size="3" value="150"></td><td><input type="text" id="color3" value="white" size="10"></td><td><input type="text" id="astring3" size="20" value=""></td><td><input type="text" id="xstring3" size="20" value=" more inbound leads per month"></td>
-    </tr>
-    <tr>
-              <td>4</td><td><input type="text" id="variable4" size="40" value="Leads To Quality Per Month Per Rep - 11mr"></td><td><input type="text" id="rstring4" size="30" value="with 500 leads to qualify each month for each rep"></td><td><input type="integer" id="font4" size="3" value="18"></td><td><input type="integer" id="width4" size="3" value="200"></td><td><input type="text" id="color4" size="10"></td><td><input type="text" id="astring4" size="20" value="with "></td><td><input type="text" id="xstring4" size="20" value=" leads to qualify each month for each rep"></td>
-    </tr>
-    <tr>
-              <td>5</td><td><input type="text" id="variable5" size="40" value="improved lead qual rate invis - 11mt"></td><td><input type="text" id="rstring5" size="30" value="and a 24% improved lead qual rate"></td><td><input type="integer" id="font5" size="3" value="18"></td><td><input type="integer" id="width5" size="3" value="350"></td><td><input type="text" id="color5" size="10"></td><td><input type="text" id="astring5" size="20" value="and a "></td><td><input type="text" id="xstring5" size="20" value=" improved lead qual rate"></td>
-    </tr>
-    <tr>
-              <td>6</td><td><input type="text" id="variable6" size="40" value="Increased Qualified Leads Per Year - 11mu"></td><td><input type="text" id="rstring6" size="30" value="1,140 more qualified leads per year"></td><td><input type="integer" id="font6" size="3" value="18"></td><td><input type="integer" id="width6" size="3" value="120"></td><td><input type="text" id="color6" size="10" value="white"></td><td><input type="text" id="astring6" size="20" value=""></td><td><input type="text" id="xstring6" size="20" value=" more qualified leads per year"></td>
-    </tr>
+      <table><div id="element_rows" style="font-size: .7em; border-spacing: 0.5rem;">
+      <!--<tr>-->
+          <!--<th>number</th><th>variable name</th><th>representative string</th><th>font size</th><th>width</th><th>color</th><th>1st extra string</th><th>2nd extra string</th>-->
+      <!--</tr>-->
+          <!--<tr>-->
+              </div>
+          <!--<td>1</td><td><input type="text" id="variable1" size="40" value="web form submissions invis - 11mn"></td><td><input type="text" id="rstring1" size="30" value="with 1,700 new web form submissions each month"></td><td><input type="integer" id="font1" size="3" value="18"></td><td><input type="integer" id="width1" size="3" value="500"></td><td><input type="text" id="color1" size="10"></td><td><input type="text" id="astring1" size="20" value=""with "></td><td><input type="text" id="xstring1" size="20" value=" new web form submissions each month"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+              <!--<td>2</td><td><input type="text" id="variable2" size="40" value="Percent Increase in Form Conversions - 11mo"></td><td><input type="text" id="rstring2" size="30" value="and a 42% increase in form conversions"></td><td><input type="integer" id="font2" size="3" value="18"></td><td><input type="integer" id="width2" size="3" value="500"></td><td><input type="text" id="color2" size="10"></td><td><input type="text" id="astring2" size="20" value="and a "></td><td><input type="text" id="xstring2" size="20" value=" increase in form conversions"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+              <!--<td>3</td><td><input type="text" id="variable3" size="40" value="Increased Inbound Leads Per Month - 11mp"></td><td><input type="text" id="rstring3" size="30" value="714 more inbound leads per month"></td><td><input type="integer" id="font3" size="3" value="18"></td><td><input type="integer" id="width3" size="3" value="150"></td><td><input type="text" id="color3" value="white" size="10"></td><td><input type="text" id="astring3" size="20" value=""></td><td><input type="text" id="xstring3" size="20" value=" more inbound leads per month"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+              <!--<td>4</td><td><input type="text" id="variable4" size="40" value="Leads To Quality Per Month Per Rep - 11mr"></td><td><input type="text" id="rstring4" size="30" value="with 500 leads to qualify each month for each rep"></td><td><input type="integer" id="font4" size="3" value="18"></td><td><input type="integer" id="width4" size="3" value="200"></td><td><input type="text" id="color4" size="10"></td><td><input type="text" id="astring4" size="20" value="with "></td><td><input type="text" id="xstring4" size="20" value=" leads to qualify each month for each rep"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+              <!--<td>5</td><td><input type="text" id="variable5" size="40" value="improved lead qual rate invis - 11mt"></td><td><input type="text" id="rstring5" size="30" value="and a 24% improved lead qual rate"></td><td><input type="integer" id="font5" size="3" value="18"></td><td><input type="integer" id="width5" size="3" value="350"></td><td><input type="text" id="color5" size="10"></td><td><input type="text" id="astring5" size="20" value="and a "></td><td><input type="text" id="xstring5" size="20" value=" improved lead qual rate"></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+              <!--<td>6</td><td><input type="text" id="variable6" size="40" value="Increased Qualified Leads Per Year - 11mu"></td><td><input type="text" id="rstring6" size="30" value="1,140 more qualified leads per year"></td><td><input type="integer" id="font6" size="3" value="18"></td><td><input type="integer" id="width6" size="3" value="120"></td><td><input type="text" id="color6" size="10" value="white"></td><td><input type="text" id="astring6" size="20" value=""></td><td><input type="text" id="xstring6" size="20" value=" more qualified leads per year"></td>-->
+    <!--</tr>-->
       </table>
     <input type="submit" class="ui-widget" value="Submit" id="sub">
       <div id="post_submit">Data loaded! Please go to the "interaction" tab for the next step.</div>
     
   </div>
-
-
 </div>
 </div>
 <div id="tabs-3">
    <div id="background">  </div>
   <div id="prompt">Drag and drop the variable elements below</div>
-
-  <div id="draggable1" class="ui-widget-content" style="background-color: red"></div>
-  <div id="draggable2" class="ui-widget-content"></div>
-  <div id="draggable3" class="ui-widget-content"></div>
-  <div id="draggable4" class="ui-widget-content"></div>
-  <div id="draggable5" class="ui-widget-content"></div>
-  <div id="draggable6" class="ui-widget-content"></div>
+    <div id="draggables"></div>
+  <!--<div id="draggable1" class="ui-widget-content" ></div>-->
+  <!--<div id="draggable2" class="ui-widget-content"></div>-->
+  <!--<div id="draggable3" class="ui-widget-content"></div>-->
+  <!--<div id="draggable4" class="ui-widget-content"></div>-->
+  <!--<div id="draggable5" class="ui-widget-content"></div>-->
+  <!--<div id="draggable6" class="ui-widget-content"></div>-->
   <div id="b">
     <!-- this button action returns variable element locations and generates all scripts -->
     <!-- the user can re-align the elements and hit the button multiple times to return updated locations and scripts -->
@@ -98,9 +100,7 @@
   </div>
   <div id="result"><br></div>
   <div id="html_format"><br></div>
-
   </div>
-
 <div id="tabs-4">
   <!-- concatenation of the initcode script -->
   <!-- combines static HTML and dynamic elements like variable locations -->
@@ -155,7 +155,6 @@ Visualizer.view.main.OutputPanel.insert(0, this.panel);   </div>
 <p>var selector = '.image-tab' + scenario.index + '-';<p>
   <!-- variable selector code inserted here -->
   <div id="selector"></div>
-
 </div>
 <!-- create styles script here -->
 <div id="tabs-6">
@@ -180,11 +179,9 @@ background: rgb(169,3,41);
   background: linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);<br>
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );<br>
 }<br>
-
 div.image-tab<br>
 {<br>
   font-family: Helvetica,Arial,sans-serif;<br>
-
   <div id="image_height">height: </div>
   <div id="image_width">width: </div><br>
 <br>
@@ -204,12 +201,9 @@ div.image-tab<br>
   9) Do the same for the text in the "update code" tab.<br>
   10) On the "visualizer type" screen, navigate to the "styles" link under the icon. Copy and paste the ENTIRE text from this application's "styles" tab into the style panel's "custom css" section. Save it.<br>
   11) Refresh the visualizer prototype. This should render all of the changes that you've made. <br><br>
-
   Any questions? Please email <a href="mailto:support@visualizeroi.com">support@visualizeroi.com</a>.<br>
-
 </div>
   
 </body>
-
 <script src="vroi_css_generator.js"></script>
 </html>

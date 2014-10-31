@@ -16,22 +16,92 @@
   var image_width;
   var image_height;
   var image;
+    var num_elements;
+    var var_val=[];
+var width_val=[];
+var astring_val=[];
+var rstring_val=[];
+var xstring_val=[];
+var i;
+var color_val=[];
 
   $("#prompt").hide();
   $("#b").hide();
   $("#post_submit").hide();
+    $("#input").hide();
 
   // Make graphical elements draggable.
-  $(function() {
-    for (var j=1; j<7; j++){
-    $("#draggable"+j).draggable();
-    };
-  });
+//  $(function() {
+//    for (var j=1; j<7; j++){
+//    $("#draggable"+j).draggable();
+//    };
+//  });
   $(function() {
             $( "#tabs-1" ).tabs();
          });
 
-// Load up variable names, make them draggable, and fade out data entry fields.
+    $("#sub_number").click(function() {
+
+        num_elements=$("#elements").val();
+
+        for (i=1; i<=num_elements; i++){
+            var_val[i]="";
+        rstring_val[i]="";
+        width_val[i]="";
+        color_val[i]="";
+        astring_val[i]="";
+        xstring_val[i]="";
+            $("#draggables").append("<div id=\"draggable"+ i.toString()+"\" class=\"ui-widget-content\" ></div><br>");
+            $("#draggable"+i).draggable();
+
+        }
+
+        var_val[1]="web form submissions invis - 11mn";
+        width_val[1]=500;
+        xstring_val[1]=" new web form submissions each month";
+        rstring_val[1]="with 1,700 new web form submissions each month";
+
+        var_val[2]="Percent Increase in Form Conversions - 11mo";
+        rstring_val[2]="and a 42% increase in form conversions";
+        width_val[2]=500;
+        astring_val[2]="and a ";
+        xstring_val[2]=" increase in form conversions";
+
+        var_val[3]="Increased Inbound Leads Per Month - 11mp";
+        rstring_val[3]="714 more inbound leads per month";
+        width_val[3]=150;
+        color_val[3]="white";
+        astring_val[3]="and a ";
+        xstring_val[3]=" increase in form conversions";
+
+        var_val[4]="Leads To Quality Per Month Per Rep - 11mr";
+        rstring_val[4]="with 500 leads to qualify each month for each rep";
+        width_val[4]=200;
+        astring_val[4]="with ";
+        xstring_val[4]=" leads to qualify each month for each rep";
+
+        var_val[5]="improved lead qual rate invis - 11mt";
+        rstring_val[5]="and a 24% improved lead qual rate";
+        width_val[5]=350;
+        astring_val[5]="and a ";
+        xstring_val[5]=" improved lead qual rate";
+
+        var_val[6]="Increased Qualified Leads Per Year - 11mu";
+        rstring_val[6]="1,140 more qualified leads per year";
+        width_val[6]=120;
+        color_val[6]="white";
+        xstring_val[6]=" more qualified leads per year";
+
+        $("#element_rows").append("<tr><th>number</th><th>variable name</th><th>representative string</th><th>font size</th><th>width</th><th>color</th><th>1st extra string</th><th>2nd extra string</th></tr>");
+
+        for (i=1;i<=num_elements;i++){
+            $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\"18\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
+
+        }
+
+        $("#input").show();
+    });
+// Load up variable names, make them draggable.
 $("#sub").click(function(){
   // Fadeout the data entry block.
 //  $("#a").fadeOut(2000);
@@ -58,6 +128,7 @@ $("#sub").click(function(){
 
     fonts[k]=$("#font"+k).val();
     temp=$("#width"+k).val();
+
     if (temp=="") {
       widths[k]="";
     } else {
@@ -76,6 +147,7 @@ $("#sub").click(function(){
       }
       rstrings[k]=$("#rstring"+k).val();
       astrings[k]=$("#astring"+k).val();
+
       xstrings[k]=$("#xstring"+k).val();
       temp=parseInt(rstrings[k]);
 
@@ -99,6 +171,7 @@ $("#sub").click(function(){
 var rw;
   // Append variable names and implement font sizing to HTML.
   for (i=1; i<variables.length; i++){
+
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).width(widths[i]);
@@ -209,4 +282,3 @@ $( "#b", document.body ).click(function( event ) {
     $("#styles_url").text(styles);
 
 });
-

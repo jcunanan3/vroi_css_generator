@@ -5,7 +5,8 @@ body{
     
     }
  table {font-size: .7em; border-spacing: 0.5rem;}
- th {text-align: left}
+ th {text-align: left; font_size: .7em;}
+ tr {font_size: .7em;}
   .entry {font-size: .7em}
   /*.ui-tabs-panel {background-color: grey;}*/
   #tabs3 {background-color: blue}
@@ -17,4 +18,5 @@ body{
     #draggable4 {word-wrap: break-word; width: 100px;}
     #draggable5 {word-wrap: break-word; width: 100px;}
     #draggable6 {word-wrap: break-word; width: 100px;}
+
 
