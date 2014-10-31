@@ -41,6 +41,7 @@ var color_val=[];
          });
 
     $("#sub_number").click(function() {
+        $("#element_rows").html("");
 
         num_elements=$("#elements").val();
 
