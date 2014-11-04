@@ -24,6 +24,9 @@ var rstring_val=[];
 var xstring_val=[];
 var i;
 var color_val=[];
+var font_val=[];
+var offset_x;
+var offset_y;
 
   $("#prompt").hide();
   $("#b").hide();
@@ -57,45 +60,80 @@ var color_val=[];
         }
 
         var_val[1]="web form submissions invis - 11mn";
-        width_val[1]=500;
-        xstring_val[1]=" new web form submissions each month";
-        rstring_val[1]="with 1,700 new web form submissions each month";
+        width_val[1]=50;
+        xstring_val[1]="";
+        rstring_val[1]="1,000";
+        font_val[1]=13;
+        color_val[1]="white";
 
         var_val[2]="Percent Increase in Form Conversions - 11mo";
-        rstring_val[2]="and a 42% increase in form conversions";
-        width_val[2]=500;
-        astring_val[2]="and a ";
-        xstring_val[2]=" increase in form conversions";
+        rstring_val[2]="42%";
+        width_val[2]=35;
+        astring_val[2]="";
+        xstring_val[2]="";
+        font_val[2]=13;
+        color_val[2]="white";
 
         var_val[3]="Increased Inbound Leads Per Month - 11mp";
-        rstring_val[3]="714 more inbound leads per month";
-        width_val[3]=150;
+        rstring_val[3]="714 MORE INBOUND SALES PER MONTH";
+        width_val[3]=250;
         color_val[3]="white";
-        astring_val[3]="and a ";
-        xstring_val[3]=" increase in form conversions";
+        astring_val[3]="";
+        xstring_val[3]=" MORE INBOUND SALES PER MONTH";
+        font_val[3]=22;
+        color_val[3]="white";
 
         var_val[4]="Leads To Quality Per Month Per Rep - 11mr";
-        rstring_val[4]="with 500 leads to qualify each month for each rep";
-        width_val[4]=200;
-        astring_val[4]="with ";
-        xstring_val[4]=" leads to qualify each month for each rep";
+        rstring_val[4]="500";
+        width_val[4]=35;
+        astring_val[4]="";
+        xstring_val[4]="";
+        font_val[4]=13;
+        color_val[4]="white";
 
         var_val[5]="improved lead qual rate invis - 11mt";
-        rstring_val[5]="and a 24% improved lead qual rate";
-        width_val[5]=350;
-        astring_val[5]="and a ";
-        xstring_val[5]=" improved lead qual rate";
+        rstring_val[5]="24%";
+        width_val[5]=35;
+        astring_val[5]="";
+        xstring_val[5]="";
+        font_val[5]=13;
+        color_val[5]="white";
 
         var_val[6]="Increased Qualified Leads Per Year - 11mu";
-        rstring_val[6]="1,140 more qualified leads per year";
-        width_val[6]=120;
+        rstring_val[6]="1,140 MORE QUALIFIED LEADS PER YEAR";
+        width_val[6]=250;
         color_val[6]="white";
-        xstring_val[6]=" more qualified leads per year";
+        xstring_val[6]=" MORE QUALIFIED LEADS PER YEAR";
+        font_val[6]=22;
+        
+        var_val[7]="Yearly Opportunity Pipeline To Close - 11mw";
+        rstring_val[7]="$3,333,333";
+        width_val[7]=80;
+        color_val[7]="white";
+        xstring_val[7]="";
+        font_val[7]=13;
+
+        
+        var_val[8]="improved deal win rate invis - 11mx";
+        rstring_val[8]="44%";
+        width_val[8]=35;
+        color_val[8]="white";
+        xstring_val[8]="";
+        font_val[8]=13;
+
+        
+        var_val[9]="Increased Qualified Leads Per Year - 11mu";
+        rstring_val[9]="$466,667 MORE CLOSED REVENUE";
+        width_val[9]=250;
+        color_val[9]="white";
+        xstring_val[9]=" MORE CLOSED REVENUE";
+        font_val[9]=22;
+
 
         $("#element_rows").append("<tr><th>number</th><th>variable name</th><th>representative string</th><th>font size</th><th>width</th><th>color</th><th>1st extra string</th><th>2nd extra string</th></tr>");
 
         for (i=1;i<=num_elements;i++){
-            $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\"18\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
+            $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\""+font_val[i]+"\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
 
         }
 
@@ -103,14 +141,15 @@ var color_val=[];
     });
 // Load up variable names, make them draggable.
 $("#sub").click(function(){
-  // Fadeout the data entry block.
-//  $("#a").fadeOut(2000);
+
 
   $("#prompt").show();
   $("#b").show();
     $("#post_submit").show();
   background_img=$("#background_url").val();
   panel_title=$("#panel_title").val();
+  offset_x=$("#offset_x");
+  offset_y=$("#offset_y");
   background_img_styles=background_img;
   background_img="<img src=\""+background_img+"\""+ "id=pict>";
   $("#background").html(background_img);
