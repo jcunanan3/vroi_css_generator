@@ -52,8 +52,7 @@ var color_val=[];
         color_val[i]="";
         astring_val[i]="";
         xstring_val[i]="";
-            $("#draggables").append("<div id=\"draggable"+ i.toString()+"\" class=\"ui-widget-content\" ></div><br>");
-            $("#draggable"+i).draggable();
+
 
         }
 
@@ -123,7 +122,7 @@ $("#sub").click(function(){
 
   var temp;
   var temp2="";
-  while (test!="" && k<7){
+  while (test!="" && k<=num_elements){
 
     variables[k]=$("#variable"+k).val();
 
@@ -171,7 +170,11 @@ $("#sub").click(function(){
   }
 var rw;
   // Append variable names and implement font sizing to HTML.
+    console.log("variables length ",variables.length);
   for (i=1; i<variables.length; i++){
+       $("#draggables").append("<div id=\"draggable"+ i.toString()+"\" class=\"ui-widget-content\" ></div><br>");
+            $("#draggable"+i).draggable();
+            console.log("draggable ",i);
 
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
