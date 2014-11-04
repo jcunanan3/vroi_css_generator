@@ -215,8 +215,8 @@ $( "#b", document.body ).click(function( event ) {
 
   // Convert the absolute coordinates to relative ones per the VROI convention
   // Some manual correction so that the coordinates translate closely to the VROI panel
-  relative_left[1]=Math.round(offset[1].left-28);
-  relative_top[1]=Math.round(offset[1].top-60);
+  relative_left[1]=Math.round(offset[1].left-25);
+  relative_top[1]=Math.round(offset[1].top-67);
 
 
   $("#result").append("<br>"+"relative coordinates (per VROI convention)"+"<br>");
