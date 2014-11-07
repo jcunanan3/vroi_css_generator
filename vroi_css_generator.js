@@ -42,6 +42,10 @@ var offset_y;
   $(function() {
             $( "#tabs-1" ).tabs();
          });
+$(function() {
+    $( "#offset_label" ).tooltip();
+  });
+  $("#offset_label").tooltip({content:"test"});
 
     $("#sub_number").click(function() {
         $("#element_rows").html("");
@@ -130,7 +134,7 @@ var offset_y;
         font_val[9]=22;
 
 
-        $("#element_rows").append("<tr><th>number</th><th>variable name</th><th>representative string</th><th>font size</th><th>width</th><th>color</th><th>1st extra string</th><th>2nd extra string</th></tr>");
+        $("#element_rows").append("<tr><th>Number</th><th>Variable Name</th><th>Representative String</th><th>Font Size</th><th>Width</th><th>Color</th><th>Introductory String</th><th>Concluding String</th></tr>");
 
         for (i=1;i<=num_elements;i++){
             $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\""+font_val[i]+"\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
@@ -211,10 +215,12 @@ var rw;
   // Append variable names and implement font sizing to HTML.
     console.log("variables length ",variables.length);
   for (i=1; i<variables.length; i++){
+      $("#draggables").append("<div id=\"v"+ i.toString()+"\" ></div>");
        $("#draggables").append("<div id=\"draggable"+ i.toString()+"\" class=\"ui-widget-content\" ></div><br>");
             $("#draggable"+i).draggable();
-            console.log("draggable ",i);
 
+    $("#v"+i).html(variables[i]);
+    $("#v"+i).css("font-style","italic");
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).width(widths[i]);
@@ -282,12 +288,12 @@ $( "#b", document.body ).click(function( event ) {
   for (var i=2;i<variables.length;i++){
     newstr="<div style=\"position: absolute;top: "+relative_top[i]+"px;left: "+relative_left[i]+"px;\">";
     $('<li></li>').text(newstr).appendTo('#html_format');
-    // $("#html_format").append(newstr);
+
     strformat=strformat+newstr;
     newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;color: "+colors[i]+"; font-size:"+fonts[i]+"px\"></div>";
 
     $('<li></li>').text(newstr).appendTo('#html_format');
-    // $("#html_format").append(newstr);
+
     strformat=strformat+newstr;
 
   };

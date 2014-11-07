@@ -50,34 +50,16 @@
   <div id="input">
   <div id="a">
       <p class="entry">If you enter leading or trailing spaces, they will be used and NOT stripped.</p>
-    <p class="entry">background image URL<input type="URL" id="background_url" size="80" value="http://s27.postimg.org/4pk9fx95f/Funnel_Graphic_Stripped_Down_001.jpg"></p>
-    <p class="entry">panel title<input type="text" id="panel_title" size="80" value="Funnel"></p>
-    <p class="entry">offset (x)<input type="text" id="offset_x" size="9" value="-25">
-      offset (y)<input type="text" id="offset_y" size="9" value="-67"></p>
-    <p class="entry">default font size<input type="text" id="default_size" size=10 value="40"></p>
+    <p class="entry">Background mage URL<input type="URL" id="background_url" size="80" value="http://s27.postimg.org/4pk9fx95f/Funnel_Graphic_Stripped_Down_001.jpg"></p>
+    <p class="entry">Panel title<input type="text" id="panel_title" size="80" value="Funnel"></p>
+      <p class="entry">The offsets correct for any differences between the coordinate systems of the CSS generator panel and the extensions panel. So, if you see an unexpected displacement in final rendering of the visualizer graphic, you can adjust the (x,y) offsets to correct for it.</p>
+    <div id="offset_label"><p class="entry">Offset (x)<input type="text" id="offset_x" size="9" value="-25">
+      Offset (y)<input type="text" id="offset_y" size="9" value="-67"></p></div>
+    <p class="entry">Default font size<input type="text" id="default_size" size=10 value="40"></p>
       <table><div id="element_rows" style="font-size: .7em; border-spacing: 0.5rem;">
-      <!--<tr>-->
-          <!--<th>number</th><th>variable name</th><th>representative string</th><th>font size</th><th>width</th><th>color</th><th>1st extra string</th><th>2nd extra string</th>-->
-      <!--</tr>-->
-          <!--<tr>-->
+
               </div>
-          <!--<td>1</td><td><input type="text" id="variable1" size="40" value="web form submissions invis - 11mn"></td><td><input type="text" id="rstring1" size="30" value="with 1,700 new web form submissions each month"></td><td><input type="integer" id="font1" size="3" value="18"></td><td><input type="integer" id="width1" size="3" value="500"></td><td><input type="text" id="color1" size="10"></td><td><input type="text" id="astring1" size="20" value=""with "></td><td><input type="text" id="xstring1" size="20" value=" new web form submissions each month"></td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-              <!--<td>2</td><td><input type="text" id="variable2" size="40" value="Percent Increase in Form Conversions - 11mo"></td><td><input type="text" id="rstring2" size="30" value="and a 42% increase in form conversions"></td><td><input type="integer" id="font2" size="3" value="18"></td><td><input type="integer" id="width2" size="3" value="500"></td><td><input type="text" id="color2" size="10"></td><td><input type="text" id="astring2" size="20" value="and a "></td><td><input type="text" id="xstring2" size="20" value=" increase in form conversions"></td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-              <!--<td>3</td><td><input type="text" id="variable3" size="40" value="Increased Inbound Leads Per Month - 11mp"></td><td><input type="text" id="rstring3" size="30" value="714 more inbound leads per month"></td><td><input type="integer" id="font3" size="3" value="18"></td><td><input type="integer" id="width3" size="3" value="150"></td><td><input type="text" id="color3" value="white" size="10"></td><td><input type="text" id="astring3" size="20" value=""></td><td><input type="text" id="xstring3" size="20" value=" more inbound leads per month"></td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-              <!--<td>4</td><td><input type="text" id="variable4" size="40" value="Leads To Quality Per Month Per Rep - 11mr"></td><td><input type="text" id="rstring4" size="30" value="with 500 leads to qualify each month for each rep"></td><td><input type="integer" id="font4" size="3" value="18"></td><td><input type="integer" id="width4" size="3" value="200"></td><td><input type="text" id="color4" size="10"></td><td><input type="text" id="astring4" size="20" value="with "></td><td><input type="text" id="xstring4" size="20" value=" leads to qualify each month for each rep"></td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-              <!--<td>5</td><td><input type="text" id="variable5" size="40" value="improved lead qual rate invis - 11mt"></td><td><input type="text" id="rstring5" size="30" value="and a 24% improved lead qual rate"></td><td><input type="integer" id="font5" size="3" value="18"></td><td><input type="integer" id="width5" size="3" value="350"></td><td><input type="text" id="color5" size="10"></td><td><input type="text" id="astring5" size="20" value="and a "></td><td><input type="text" id="xstring5" size="20" value=" improved lead qual rate"></td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-              <!--<td>6</td><td><input type="text" id="variable6" size="40" value="Increased Qualified Leads Per Year - 11mu"></td><td><input type="text" id="rstring6" size="30" value="1,140 more qualified leads per year"></td><td><input type="integer" id="font6" size="3" value="18"></td><td><input type="integer" id="width6" size="3" value="120"></td><td><input type="text" id="color6" size="10" value="white"></td><td><input type="text" id="astring6" size="20" value=""></td><td><input type="text" id="xstring6" size="20" value=" more qualified leads per year"></td>-->
-    <!--</tr>-->
+
       </table>
     <input type="submit" class="ui-widget" value="Submit" id="sub">
       <div id="post_submit">Data loaded! Please go to the "interaction" tab for the next step.</div>
@@ -89,19 +71,14 @@
    <div id="background">  </div>
   <div id="prompt">Drag and drop the variable elements below</div>
     <div id="draggables"></div>
-  <!--<div id="draggable1" class="ui-widget-content" ></div>-->
-  <!--<div id="draggable2" class="ui-widget-content"></div>-->
-  <!--<div id="draggable3" class="ui-widget-content"></div>-->
-  <!--<div id="draggable4" class="ui-widget-content"></div>-->
-  <!--<div id="draggable5" class="ui-widget-content"></div>-->
-  <!--<div id="draggable6" class="ui-widget-content"></div>-->
+
   <div id="b">
     <!-- this button action returns variable element locations and generates all scripts -->
     <!-- the user can re-align the elements and hit the button multiple times to return updated locations and scripts -->
     <p><button type="button">generate scripts</button></p>
   </div>
-  <div id="result"><br></div>
-  <div id="html_format"><br></div>
+  <!--<div id="result"><br></div>-->
+  <!--<div id="html_format"><br></div>-->
   </div>
 <div id="tabs-4">
   <!-- concatenation of the initcode script -->
