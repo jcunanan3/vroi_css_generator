@@ -216,11 +216,14 @@ var rw;
     console.log("variables length ",variables.length);
   for (i=1; i<variables.length; i++){
       $("#draggables").append("<div id=\"v"+ i.toString()+"\" ></div>");
+      $("#draggables").append("<div id=\"rs"+ i.toString()+"\" ></div>");
        $("#draggables").append("<div id=\"draggable"+ i.toString()+"\" class=\"ui-widget-content\" ></div><br>");
             $("#draggable"+i).draggable();
 
     $("#v"+i).html(variables[i]);
     $("#v"+i).css("font-style","italic");
+    $("#rs"+i).html(rstrings[i]);
+    $("#rs"+i).css("font-style","italic");
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).width(widths[i]);
