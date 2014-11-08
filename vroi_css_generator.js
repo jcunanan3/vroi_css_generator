@@ -27,6 +27,8 @@ var color_val=[];
 var font_val=[];
 var offset_x;
 var offset_y;
+var align_val=[];
+var align=[];
 
   $("#prompt").hide();
   $("#b").hide();
@@ -59,6 +61,7 @@ $(function() {
         color_val[i]="";
         astring_val[i]="";
         xstring_val[i]="";
+        align_val[i]="left";
 
 
         }
@@ -86,6 +89,7 @@ $(function() {
         xstring_val[3]=" MORE INBOUND SALES PER MONTH";
         font_val[3]=22;
         color_val[3]="white";
+        align_val[3]="center";
 
         var_val[4]="Leads To Quality Per Month Per Rep - 11mr";
         rstring_val[4]="500";
@@ -109,6 +113,7 @@ $(function() {
         color_val[6]="white";
         xstring_val[6]=" MORE QUALIFIED LEADS PER YEAR";
         font_val[6]=22;
+        align_val[6]="center";
         
         var_val[7]="Yearly Opportunity Pipeline To Close - 11mw";
         rstring_val[7]="$3,333,333";
@@ -132,12 +137,13 @@ $(function() {
         color_val[9]="white";
         xstring_val[9]=" MORE CLOSED REVENUE";
         font_val[9]=22;
+        align_val[9]="center";
 
 
-        $("#element_rows").append("<tr><th>Number</th><th>Variable Name</th><th>Representative String</th><th>Font Size</th><th>Width</th><th>Color</th><th>Introductory String</th><th>Concluding String</th></tr>");
+        $("#element_rows").append("<tr><th>Number</th><th>Variable Name</th><th>Representative String</th><th>Font Size</th><th>Width</th><th>Color</th><th>text align</th><th>Introductory String</th><th>Concluding String</th></tr>");
 
         for (i=1;i<=num_elements;i++){
-            $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\""+font_val[i]+"\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
+            $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\""+font_val[i]+"\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"align"+i+"\" size=\"8\" value=\""+align_val[i]+"\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
 
         }
 
@@ -168,6 +174,7 @@ $("#sub").click(function(){
   while (test!="" && k<=num_elements){
 
     variables[k]=$("#variable"+k).val();
+      align[k]=$("#align"+k).val();
 
     fonts[k]=$("#font"+k).val();
     temp=$("#width"+k).val();
@@ -226,6 +233,8 @@ var rw;
     $("#rs"+i).css("font-style","italic");
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
+    $("#draggable"+i).css("text-align", align[i]);
+      console.log("align",i,align[i]);
     $("#draggable"+i).width(widths[i]);
     $("#draggable"+i).css("color",colors[i]);
 
@@ -282,10 +291,10 @@ $( "#b", document.body ).click(function( event ) {
 
   var newstr;
   var strformat="\'html\': String.format(\'<div class=\"image-tab\"><div class=\"image-tab-numbers\">";
-  var terminus="<div class=\"antenna-workflow{0}-publish antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-run antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-manage antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-analyze antenna-workflow-number\"></div><div style=\"clear: both;\"></div></div></div></div></div>\', scenario.index)}));"
+  var terminus="<div class=\"antenna-workflow{0}-publish antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-run antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-manage antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-analyze antenna-workflow-number\"></div><div style=\"clear: both;\"></div></div></div></div></div>\', scenario.index)}));";
   strformat=strformat+"<div style=\"position: absolute;top: "+relative_top[1]+"px;left: "+relative_left[1]+"px;\">";
   // $('<li></li>').text(strformat).appendTo('#html_format');
-  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\"width:"+widths[1]+"px; color: "+colors[1]+"; font-size:"+fonts[1]+"px\"></div>";
+  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\"width:"+widths[1]+"px; color: "+colors[1]+"; font-size:"+fonts[1]+"px; text-align:"+align[1]+"\"></div>";
   $('<li></li>').text(strformat).appendTo('#html_format');
 
   for (var i=2;i<variables.length;i++){
@@ -293,7 +302,8 @@ $( "#b", document.body ).click(function( event ) {
     $('<li></li>').text(newstr).appendTo('#html_format');
 
     strformat=strformat+newstr;
-    newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;color: "+colors[i]+"; font-size:"+fonts[i]+"px\"></div>";
+      console.log("build format str align ",i,align[i]);
+    newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;color: "+colors[i]+"; font-size:"+fonts[i]+"px; text-align:"+align[i]+"\"></div>";
 
     $('<li></li>').text(newstr).appendTo('#html_format');
 
