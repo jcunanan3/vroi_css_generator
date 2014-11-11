@@ -2,7 +2,7 @@
  * Created by joaquincunanan on 10/1/14.
  */
 
-
+//Declare variables as global
   var variables=[];
   var fonts=[];
   var widths=[];
@@ -53,7 +53,7 @@ $(function() {
         $("#element_rows").html("");
 
         num_elements=$("#elements").val();
-
+//    Initialize the default variable values as ""
         for (i=1; i<=num_elements; i++){
             var_val[i]="";
         rstring_val[i]="";
@@ -65,7 +65,7 @@ $(function() {
 
 
         }
-
+//        Set default variable values to the InsideView case
         var_val[1]="web form submissions invis - 11mn";
         width_val[1]=260;
         astring_val[1]="With "
@@ -142,9 +142,10 @@ $(function() {
         font_val[9]=16;
         align_val[9]="center";
 
-
+//        Set data entry table headings
         $("#element_rows").append("<tr><th>Number</th><th>Variable Name</th><th>Representative String</th><th>Font Size</th><th>Width</th><th>Color</th><th>Text Align</th><th>Introductory String</th><th>Concluding String</th></tr>");
 
+//        Set data entry table rows for variable data entry
         for (i=1;i<=num_elements;i++){
             $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\""+font_val[i]+"\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"align"+i+"\" size=\"8\" value=\""+align_val[i]+"\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
 
@@ -223,7 +224,7 @@ $("#sub").click(function(){
   }
 var rw;
   // Append variable names and implement font sizing to HTML.
-    console.log("variables length ",variables.length);
+
   for (i=1; i<variables.length; i++){
       $("#draggables").append("<div id=\"v"+ i.toString()+"\" ></div>");
       $("#draggables").append("<div id=\"rs"+ i.toString()+"\" ></div>");
@@ -264,7 +265,7 @@ $( "#b", document.body ).click(function( event ) {
 
   $("#result").html("");
 
-  // Get the absolute coordinates
+  // Get the absolute coordinates for the graphical elements
   var offset=[];
 
   $("#result").append("absolute coordinates"+"<br>");
@@ -274,6 +275,7 @@ $( "#b", document.body ).click(function( event ) {
   };
 
   // Convert the absolute coordinates to relative ones per the VROI convention
+//    VROI convention is coordinates are referenced relative to the preceding graphical element. First element is relative to (0,0).
   // Some manual correction so that the coordinates translate closely to the VROI panel
   relative_left[1]=Math.round(offset[1].left-25);
   relative_top[1]=Math.round(offset[1].top-67);
@@ -291,7 +293,7 @@ $( "#b", document.body ).click(function( event ) {
     $( "#result" ).append( m+" "+variables[m] + " coords ( " + relative_left[m] + ", " + relative_top[m] + " )"+"<br>");
   };
 
-
+//Concatenate the init code script
   var newstr;
   var strformat="\'html\': String.format(\'<div class=\"image-tab\"><div class=\"image-tab-numbers\">";
   var terminus="<div class=\"antenna-workflow{0}-publish antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-run antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-manage antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-analyze antenna-workflow-number\"></div><div style=\"clear: both;\"></div></div></div></div></div>\', scenario.index)}));";
@@ -342,7 +344,7 @@ $( "#b", document.body ).click(function( event ) {
     };
     $("#selector").append("<br>");
   };
-
+//Add the background image URL to the styles code
   var styles="  background: url("+background_img_styles+")";
     $("#styles_url").text(styles);
 
