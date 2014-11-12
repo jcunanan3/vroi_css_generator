@@ -29,6 +29,8 @@ var offset_x;
 var offset_y;
 var align_val=[];
 var align=[];
+var font_family_val=[];
+var font_family=[];
 
   $("#prompt").hide();
   $("#b").hide();
@@ -62,6 +64,7 @@ $(function() {
         astring_val[i]="";
         xstring_val[i]="";
         align_val[i]="left";
+        font_family_val[i]="Lucida Grande";
 
 
         }
@@ -136,18 +139,18 @@ $(function() {
         
         var_val[9]="Increased $ Won Per Year - 11my";
         rstring_val[9]="$466,667 MORE CLOSED REVENUE";
-        width_val[9]=200;
+        width_val[9]=150;
         color_val[9]="orange";
         xstring_val[9]=" MORE CLOSED REVENUE";
         font_val[9]=16;
         align_val[9]="center";
 
 //        Set data entry table headings
-        $("#element_rows").append("<tr><th>Number</th><th>Variable Name</th><th>Representative String</th><th>Font Size</th><th>Width</th><th>Color</th><th>Text Align</th><th>Introductory String</th><th>Concluding String</th></tr>");
+        $("#element_rows").append("<tr><th>Number</th><th>Variable Name</th><th>Representative String</th><th>Font</th><th>Font Size</th><th>Width</th><th>Color</th><th>Text Align</th><th>Introductory String</th><th>Concluding String</th></tr>");
 
 //        Set data entry table rows for variable data entry
         for (i=1;i<=num_elements;i++){
-            $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\""+font_val[i]+"\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"align"+i+"\" size=\"8\" value=\""+align_val[i]+"\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
+            $("#element_rows").append("<tr><td>"+i+"</td><td><input type=\"text\" id=\"variable"+i+"\" size=\"40\" value=\""+var_val[i]+"\"></td><td><input type=\"text\" id=\"rstring"+i+"\" size=\"30\" value=\""+rstring_val[i]+"\"></td><td><input type=\"text\" id=\"font_family"+i+"\" size=\"10\" value=\""+font_family_val[i]+"\"></td><td><input type=\"integer\" id=\"font"+i+"\" size=\"3\" value=\""+font_val[i]+"\"></td><td><input type=\"integer\" id=\"width"+i+"\" size=\"9\" value=\""+width_val[i]+"\"></td><td><input type=\"text\" id=\"color"+i+"\"  value=\""+color_val[i]+"\" size=\"10\"></td><td><input type=\"text\" id=\"align"+i+"\" size=\"8\" value=\""+align_val[i]+"\"></td><td><input type=\"text\" id=\"astring"+i+"\" size=\"20\" value=\""+astring_val[i]+"\"></td><td><input type=\"text\" id=\"xstring"+i+"\" size=\"20\" value=\""+xstring_val[i]+"\"></td></tr>");
 
         }
 
@@ -181,6 +184,7 @@ $("#sub").click(function(){
       align[k]=$("#align"+k).val();
 
     fonts[k]=$("#font"+k).val();
+      font_family[k]=$("#font_family"+k).val();
     temp=$("#width"+k).val();
 
     if (temp=="") {
@@ -238,7 +242,8 @@ var rw;
     $("#draggable"+i).html(rstrings[i]);
     $("#draggable"+i).css("font-size", fonts[i]+"px");
     $("#draggable"+i).css("text-align", align[i]);
-      console.log("align",i,align[i]);
+    $("#draggable"+i).css("font-family", font_family[i]);
+
     $("#draggable"+i).width(widths[i]);
     $("#draggable"+i).css("color",colors[i]);
 
@@ -299,7 +304,7 @@ $( "#b", document.body ).click(function( event ) {
   var terminus="<div class=\"antenna-workflow{0}-publish antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-run antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-manage antenna-workflow-number\"></div><div class=\"antenna-workflow{0}-analyze antenna-workflow-number\"></div><div style=\"clear: both;\"></div></div></div></div></div>\', scenario.index)}));";
   strformat=strformat+"<div style=\"position: absolute;top: "+relative_top[1]+"px;left: "+relative_left[1]+"px;\">";
   // $('<li></li>').text(strformat).appendTo('#html_format');
-  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\"width:"+widths[1]+"px; color: "+colors[1]+"; font-size:"+fonts[1]+"px; text-align:"+align[1]+"\"></div>";
+  strformat=strformat+"<div class=\"image-tab{0}-1\" style=\"width:"+widths[1]+"px; color: "+colors[1]+"; font-size:"+fonts[1]+"px; font-family:"+font_family[1]+"; text-align:"+align[1]+"\"></div>";
   $('<li></li>').text(strformat).appendTo('#html_format');
 
   for (var i=2;i<variables.length;i++){
@@ -308,7 +313,7 @@ $( "#b", document.body ).click(function( event ) {
 
     strformat=strformat+newstr;
       console.log("build format str align ",i,align[i]);
-    newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;color: "+colors[i]+"; font-size:"+fonts[i]+"px; text-align:"+align[i]+"\"></div>";
+    newstr="<div class=\"image-tab{0}-"+i+"\" style=\"width:"+widths[i]+"px;color: "+colors[i]+"; font-size:"+fonts[i]+"px; font-family:"+font_family[i]+ "; text-align:"+align[i]+"\"></div>";
 
     $('<li></li>').text(newstr).appendTo('#html_format');
 
