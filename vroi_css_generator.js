@@ -350,7 +350,7 @@ $( "#b", document.body ).click(function( event ) {
     $("#selector").append("<br>");
   };
 //Add the background image URL to the styles code
-  var styles="  background: url("+background_img_styles+")";
+  var styles="  background: url("+background_img_styles+");";
     $("#styles_url").text(styles);
 
 });
